@@ -17,6 +17,126 @@
 
 <body>
 
+    <!-- POPUP WHATSAPP -->
+<div id="waPopup" class="wa-popup">
+  <div class="wa-popup-box">
+
+    <button class="wa-close" onclick="closeWaPopup()">×</button>
+
+    <div class="wa-popup-content">
+      <h3>🎁 Ada Promo Umroh Untuk Kamu!</h3>
+      <p>
+        Jangan lewatkan penawaran spesial kami.
+        Klik tombol di bawah untuk menghubungi WhatsApp.
+      </p>
+
+      <a
+        href="https://wa.me/087786222659?text=Halo%2C%20saya%20tertarik%20dengan%20promonya"
+        target="_blank"
+        class="wa-button"
+      >
+        💬 Chat WhatsApp
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* Background popup */
+  .wa-popup {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* Kotak popup */
+  .wa-popup-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 18px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: popupIn 0.3s ease;
+  }
+
+  /* Tombol X */
+  .wa-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+  }
+
+  .wa-popup-content h3 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+
+  .wa-popup-content p {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Tombol WhatsApp */
+  .wa-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 25px;
+    border-radius: 10px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .wa-button:hover {
+    opacity: 0.9;
+  }
+
+  @keyframes popupIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  // Tampilkan popup setelah 3 detik
+  setTimeout(function() {
+    document.getElementById("waPopup").style.display = "flex";
+  }, 3000);
+
+  // Tutup popup
+  function closeWaPopup() {
+    document.getElementById("waPopup").style.display = "none";
+  }
+
+  // Tutup jika klik area luar popup
+  document.getElementById("waPopup").addEventListener("click", function(e) {
+    if (e.target === this) {
+      closeWaPopup();
+    }
+  });
+</script>
 
     <!-- =========================
          NAVBAR
