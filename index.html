@@ -2,1585 +2,1861 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="ngajiplus - Belajar Al-Qur'an dan ilmu agama dengan mudah, terstruktur, dan menyenangkan.">
+<meta name="description"
+content="ngajiplus - Belajar Al-Qur'an dan ilmu agama dengan mudah, terstruktur, dan menyenangkan.">
 
-    <title>ngajiplus | Belajar Al-Qur'an</title>
+<title>ngajiplus | Belajar Al-Qur'an</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =====================================================
+   DARK / LIGHT MODE
+===================================================== */
+
+:root {
+    --bg: #ffffff;
+    --bg-soft: #f6f8f7;
+    --card: #ffffff;
+    --text: #111827;
+    --text-soft: #667085;
+    --border: #e5e7eb;
+    --green: #006b3c;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+    --bg: #09120f;
+    --bg-soft: #101b17;
+    --card: #16231d;
+    --text: #f4f8f6;
+    --text-soft: #b7c7bf;
+    --border: #2b4037;
+    --green: #08a95c;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    transition:
+        background .35s ease,
+        color .35s ease;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+body.dark-mode .header {
+    background: #0d1713 !important;
+    border-bottom: 1px solid #25372f !important;
+}
+
+body.dark-mode .navbar {
+    background: #0d1713 !important;
+}
+
+body.dark-mode .logo span {
+    color: #ffffff !important;
+}
+
+body.dark-mode .menu a {
+    color: #dce8e2 !important;
+}
+
+body.dark-mode .menu a:hover {
+    color: #55dc99 !important;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid #d8e0dc;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition:
+        .3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+body.dark-mode .theme-toggle {
+    background: #1a2a23 !important;
+    border-color: #3c5549 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+body.dark-mode .hero {
+    background: #09120f !important;
+}
+
+body.dark-mode .hero h1 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .hero h1 span {
+    color: #25c77b !important;
+}
+
+body.dark-mode .hero-description {
+    color: #b8c8c0 !important;
+}
+
+body.dark-mode .arabic {
+    color: #bfe8d2 !important;
+}
+
+body.dark-mode .badge {
+    background: #143627 !important;
+    color: #70e0a7 !important;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+body.dark-mode .btn-outline {
+    color: #ffffff !important;
+    background: transparent !important;
+    border-color: #547267 !important;
+}
+
+body.dark-mode .btn-outline:hover {
+    background: #193329 !important;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+body.dark-mode .stats {
+    background: #005c35 !important;
+}
+
+body.dark-mode .stat-item strong {
+    color: #ffffff !important;
+}
+
+body.dark-mode .stat-item span {
+    color: #d5eee2 !important;
+}
+
+
+/* =========================
+   ALL SECTION
+========================= */
+
+body.dark-mode .section {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+body.dark-mode .section-heading h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .section-heading p {
+    color: var(--text-soft) !important;
+}
+
+body.dark-mode .section-label {
+    color: #58d99a !important;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+body.dark-mode .about {
+    background: #09120f !important;
+}
+
+body.dark-mode .about-text h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .about-text p {
+    color: #b8c8c0 !important;
+}
+
+body.dark-mode .check-list p {
+    color: #d4dfda !important;
+}
+
+
+/* =========================
+   PROGRAM
+========================= */
+
+body.dark-mode .programs {
+    background: #101b17 !important;
+}
+
+body.dark-mode .program-card {
+    background: #16231d !important;
+
+    border: 1px solid #2b4037 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.30) !important;
+}
+
+body.dark-mode .program-card h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .program-card p {
+    color: #b8c8c0 !important;
+}
+
+body.dark-mode .program-card a {
+    color: #58d99a !important;
+}
+
+body.dark-mode .program-icon {
+    background: #1c382b !important;
+}
+
+
+/* =========================
+   DOKUMENTASI
+========================= */
+
+body.dark-mode .documentation {
+    background: #09120f !important;
+}
+
+body.dark-mode .gallery-item {
+    border-color: #2b4037 !important;
+}
+
+
+/* =========================
+   ULASAN
+========================= */
+
+body.dark-mode .reviews {
+    background: #101b17 !important;
+}
+
+body.dark-mode .review-card {
+    background: #16231d !important;
+
+    border: 1px solid #2b4037 !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.30) !important;
+}
+
+body.dark-mode .review-card p {
+    color: #c0cec8 !important;
+}
+
+body.dark-mode .review-card strong {
+    color: #ffffff !important;
+}
+
+body.dark-mode .stars {
+    color: #ffd447 !important;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+body.dark-mode .cta {
+    background: #005c35 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .cta h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .cta p {
+    color: #d6eee2 !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+body.dark-mode footer {
+    background: #050c09 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode footer h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode footer p {
+    color: #adbbb5 !important;
+}
+
+body.dark-mode footer a {
+    color: #cbd9d2 !important;
+}
+
+body.dark-mode footer a:hover {
+    color: #58d99a !important;
+}
+
+
+/* =========================
+   NAV BUTTON
+========================= */
+
+body.dark-mode .nav-button {
+    background: #087b46 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+body.dark-mode .menu {
+    background: #0d1713 !important;
+}
+
+body.dark-mode .menu-toggle {
+    color: #ffffff !important;
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+body.dark-mode .wa-popup-box {
+    background: #16231d !important;
+}
+
+
+/* =========================
+   TRANSITION
+========================= */
+
+body,
+.header,
+.navbar,
+.hero,
+.section,
+.stats,
+.programs,
+.program-card,
+.review-card,
+.cta,
+footer,
+.menu,
+.theme-toggle {
+    transition:
+        background-color .35s ease,
+        color .35s ease,
+        border-color .35s ease;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================================
-         POPUP WHATSAPP
-    ========================================== -->
 
-    <div id="waPopup" class="wa-popup">
+<!-- =====================================================
+     POPUP WHATSAPP
+===================================================== -->
 
-        <div class="wa-popup-box">
+<div id="waPopup" class="wa-popup">
 
-            <button
-                class="wa-close"
-                onclick="closeWaPopup()"
-                aria-label="Tutup popup">
-                ×
-            </button>
+    <div class="wa-popup-box">
 
-            <a
-                href="https://wa.me/6287786222659?text=Assalamualaikum%2C%20saya%20tertarik%20dengan%20promo%20ini"
-                target="_blank"
-                rel="noopener">
+        <button
+            class="wa-close"
+            onclick="closeWaPopup()">
+            ×
+        </button>
 
-                <img
-                    src="images/poster.png"
-                    alt="Promo NgajiPlus"
-                    class="wa-poster">
+        <a
+            href="https://wa.me/6287786222659?text=Assalamualaikum%2C%20saya%20tertarik%20dengan%20promo%20ini"
+            target="_blank"
+            rel="noopener">
 
-            </a>
+            <img
+                src="images/poster.png"
+                alt="Promo NgajiPlus"
+                class="wa-poster">
 
-        </div>
+        </a>
 
     </div>
 
+</div>
 
-    <!-- =========================================
-         STYLE POPUP
-    ========================================== -->
 
-    <style>
+<style>
 
-        .wa-popup {
+.wa-popup {
+    display: none;
 
-            display: none;
+    position: fixed;
 
-            position: fixed;
+    z-index: 999999;
 
-            z-index: 999999;
+    inset: 0;
 
-            inset: 0;
+    background: rgba(0,0,0,.75);
 
-            background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
 
-            align-items: center;
+    padding: 15px;
+}
 
-            justify-content: center;
+.wa-popup-box {
+    position: relative;
 
-            padding: 15px;
-        }
+    max-width: 420px;
 
+    width: 100%;
 
-        .wa-popup-box {
+    border-radius: 15px;
 
-            position: relative;
+    overflow: hidden;
 
-            max-width: 420px;
+    background: white;
 
-            width: 100%;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.4);
 
-            border-radius: 15px;
+    animation:
+        popupIn .35s ease;
+}
 
-            overflow: hidden;
+.wa-poster {
+    display: block;
 
-            background: white;
+    width: 100%;
 
-            box-shadow:
-                0 10px 40px rgba(0,0,0,.4);
+    height: auto;
 
-            animation:
-                popupIn .35s ease;
-        }
+    cursor: pointer;
+}
 
+.wa-close {
+    position: absolute;
 
-        .wa-poster {
+    z-index: 10;
 
-            display: block;
+    top: 8px;
+    right: 8px;
 
-            width: 100%;
+    width: 35px;
+    height: 35px;
 
-            height: auto;
+    border: 0;
 
-            cursor: pointer;
-        }
+    border-radius: 50%;
 
+    background: rgba(0,0,0,.65);
 
-        .wa-close {
+    color: white;
 
-            position: absolute;
+    font-size: 25px;
 
-            z-index: 10;
+    cursor: pointer;
+}
 
-            top: 8px;
+@keyframes popupIn {
 
-            right: 8px;
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
 
-            width: 35px;
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 
-            height: 35px;
+}
 
-            border: 0;
+</style>
 
-            border-radius: 50%;
 
-            background: rgba(0,0,0,.65);
+<script>
 
-            color: white;
+setTimeout(function() {
 
-            font-size: 25px;
+    const popup =
+        document.getElementById("waPopup");
 
-            line-height: 35px;
+    if (popup) {
+        popup.style.display = "flex";
+    }
 
-            cursor: pointer;
-        }
+}, 3000);
 
 
-        .wa-close:hover {
+function closeWaPopup() {
 
-            background: rgba(0,0,0,.9);
-        }
+    const popup =
+        document.getElementById("waPopup");
 
+    if (popup) {
+        popup.style.display = "none";
+    }
 
-        @keyframes popupIn {
+}
 
-            from {
 
-                transform: scale(.8);
+document
+.getElementById("waPopup")
+.addEventListener("click", function(e) {
 
-                opacity: 0;
-            }
+    if (e.target === this) {
+        closeWaPopup();
+    }
 
-            to {
+});
 
-                transform: scale(1);
+</script>
 
-                opacity: 1;
-            }
 
-        }
 
-    </style>
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
+<header class="header">
 
-    <!-- =========================================
-         SCRIPT POPUP
-    ========================================== -->
+<nav class="navbar">
 
-    <script>
 
-        setTimeout(function() {
+<a href="#home" class="logo">
 
-            const popup =
-                document.getElementById("waPopup");
+    <img
+        src="images/logo1.png"
+        alt="Logo ngajiplus">
 
-            if (popup) {
+    <span>
+        ngajiplus
+    </span>
 
-                popup.style.display = "flex";
+</a>
 
-            }
 
-        }, 3000);
+<button
+    class="menu-toggle"
+    onclick="toggleMenu()"
+    aria-label="Buka menu">
 
+    ☰
 
-        function closeWaPopup() {
+</button>
 
-            const popup =
-                document.getElementById("waPopup");
 
-            if (popup) {
+<div
+    class="menu"
+    id="menu">
 
-                popup.style.display = "none";
+    <a href="#home">
+        Beranda
+    </a>
 
-            }
+    <a href="#tentang">
+        Tentang
+    </a>
 
-        }
+    <a href="#program">
+        Program
+    </a>
 
+    <a href="#dokumentasi">
+        Dokumentasi
+    </a>
 
-        const waPopup =
-            document.getElementById("waPopup");
+    <a href="#ulasan">
+        Ulasan
+    </a>
 
+    <a href="#kontak">
+        Kontak
+    </a>
 
-        if (waPopup) {
+</div>
 
-            waPopup.addEventListener(
-                "click",
-                function(e) {
 
-                    if (e.target === this) {
+<!-- TOMBOL DARK LIGHT -->
 
-                        closeWaPopup();
+<button
+    class="theme-toggle"
+    id="themeToggle"
+    onclick="toggleTheme()"
+    aria-label="Ganti tema"
+    title="Ganti tema">
 
-                    }
+    🌙
 
-                }
-            );
+</button>
 
-        }
 
-    </script>
+<a
+    href="#kontak"
+    class="nav-button">
 
+    Daftar Sekarang
 
+</a>
 
-    <!-- =========================================
-         NAVBAR
-    ========================================== -->
 
-    <header class="header">
+</nav>
 
-        <nav class="navbar">
+</header>
 
-            <!-- LOGO -->
 
-            <a
-                href="#home"
-                class="logo">
 
-                <img
-                    src="images/logo1.png"
-                    alt="Logo NgajiPlus">
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
-                <span>
-                    ngajiplus
-                </span>
+<main>
 
-            </a>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-            <!-- MENU MOBILE -->
+<section
+    class="hero"
+    id="home">
 
-            <button
-                class="menu-toggle"
-                onclick="toggleMenu()"
-                aria-label="Buka menu">
 
-                ☰
+<div class="hero-content">
 
-            </button>
 
+<div class="badge">
 
-            <!-- MENU -->
+    ✨ Pendaftaran Santri Dibuka
 
-            <div
-                class="menu"
-                id="menu">
+</div>
 
-                <a href="#home">
-                    Beranda
-                </a>
 
-                <a href="#tentang">
-                    Tentang
-                </a>
+<p class="arabic">
 
-                <a href="#program">
-                    Program
-                </a>
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 
-                <a href="#dokumentasi">
-                    Dokumentasi
-                </a>
+</p>
 
-                <a href="#ulasan">
-                    Ulasan
-                </a>
 
-                <a href="#kontak">
-                    Kontak
-                </a>
+<h1>
 
-            </div>
+    Membangun Generasi
 
+    <span>
+        Qur'ani
+    </span>
 
-            <!-- THEME TOGGLE -->
+</h1>
 
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                onclick="toggleTheme()"
-                aria-label="Ganti tema"
-                title="Ganti tema">
 
-                🌙
+<p class="hero-description">
 
-            </button>
+    Belajar Al-Qur'an dan ilmu agama
+    dengan metode yang mudah,
+    terstruktur, dan menyenangkan.
 
+</p>
 
-            <!-- DAFTAR -->
 
-            <a
-                href="#kontak"
-                class="nav-button">
+<div class="hero-buttons">
 
-                Daftar Sekarang
 
-            </a>
+<a
+    href="#program"
+    class="btn-primary">
 
-        </nav>
+    Lihat Program →
 
-    </header>
+</a>
 
 
+<a
+    href="#tentang"
+    class="btn-outline">
 
-    <!-- =========================================
-         MAIN
-    ========================================== -->
+    Tentang Kami
 
-    <main>
+</a>
 
 
-        <!-- =====================================
-             HERO
-        ====================================== -->
+</div>
 
-        <section
-            class="hero"
-            id="home">
 
-            <div class="hero-content">
+</div>
 
 
-                <div class="badge">
+<div class="hero-image">
 
-                    ✨ Pendaftaran Santri Dibuka
+<img
+    src="images/wallpaper.jpg"
+    alt="Belajar Al-Qur'an">
 
-                </div>
+</div>
 
 
-                <p class="arabic">
+</section>
 
-                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 
-                </p>
 
+<!-- =====================================================
+     STATISTIK
+===================================================== -->
 
-                <h1>
+<section class="stats">
 
-                    Membangun Generasi
 
-                    <span>
-                        Qur'ani
-                    </span>
+<div class="stat-item">
 
-                </h1>
+<strong>
+    100+
+</strong>
 
+<span>
+    Santri
+</span>
 
-                <p class="hero-description">
+</div>
 
-                    Belajar Al-Qur'an dan ilmu agama
-                    dengan metode yang mudah,
-                    terstruktur, dan menyenangkan.
 
-                </p>
+<div class="stat-item">
 
+<strong>
+    50+
+</strong>
 
-                <div class="hero-buttons">
+<span>
+    Pengajar
+</span>
 
+</div>
 
-                    <a
-                        href="#program"
-                        class="btn-primary">
 
-                        Lihat Program →
+<div class="stat-item">
 
-                    </a>
+<strong>
+    10+
+</strong>
 
+<span>
+    Program
+</span>
 
-                    <a
-                        href="#tentang"
-                        class="btn-outline">
+</div>
 
-                        Tentang Kami
 
-                    </a>
+<div class="stat-item">
 
+<strong>
+    100%
+</strong>
 
-                </div>
+<span>
+    Semangat Belajar
+</span>
 
-            </div>
+</div>
 
 
-            <div class="hero-image">
+</section>
 
-                <img
-                    src="images/wallpaper.jpg"
-                    alt="Belajar Al-Qur'an">
 
-            </div>
 
-        </section>
+<!-- =====================================================
+     TENTANG
+===================================================== -->
 
+<section
+    class="section about"
+    id="tentang">
 
 
-        <!-- =====================================
-             STATISTIK
-        ====================================== -->
+<div class="section-heading">
 
-        <section class="stats">
+<p class="section-label">
+    TENTANG KAMI
+</p>
 
 
-            <div class="stat-item">
+<h2>
+    Belajar Mengaji
+    Lebih Mudah
+</h2>
 
-                <strong>
-                    100+
-                </strong>
+</div>
 
-                <span>
-                    Santri
-                </span>
 
-            </div>
+<div class="about-grid">
 
 
-            <div class="stat-item">
+<div class="about-image">
 
-                <strong>
-                    50+
-                </strong>
+<img
+    src="images/ustadz1.jpg"
+    alt="Kegiatan belajar mengaji">
 
-                <span>
-                    Pengajar
-                </span>
+</div>
 
-            </div>
 
+<div class="about-text">
 
-            <div class="stat-item">
 
-                <strong>
-                    10+
-                </strong>
+<h3>
 
-                <span>
-                    Program
-                </span>
+    Menjadikan Al-Qur'an
+    sebagai bagian dari kehidupan
 
-            </div>
+</h3>
 
 
-            <div class="stat-item">
+<p>
 
-                <strong>
-                    100%
-                </strong>
+    ngajiplus hadir untuk membantu
+    siapa saja belajar Al-Qur'an dan
+    ilmu agama secara bertahap.
 
-                <span>
-                    Semangat Belajar
-                </span>
+</p>
 
-            </div>
 
-        </section>
+<p>
 
+    Pembelajaran dirancang agar mudah
+    dipahami, terarah, dan dapat
+    disesuaikan dengan kebutuhan santri.
 
+</p>
 
-        <!-- =====================================
-             TENTANG
-        ====================================== -->
 
-        <section
-            class="section about"
-            id="tentang">
+<div class="check-list">
 
 
-            <div class="section-heading">
+<p>
+    ✓ Belajar bertahap
+</p>
 
 
-                <p class="section-label">
+<p>
+    ✓ Pengajar berpengalaman dan Bersertifikat
+</p>
 
-                    TENTANG KAMI
 
-                </p>
+<p>
+    ✓ Tersedia Guru Ikhwan dan Akhwat
+</p>
 
 
-                <h2>
+<p>
+    ✓ Offline atau Online
+</p>
 
-                    Belajar Mengaji
-                    Lebih Mudah
 
-                </h2>
+<p>
+    ✓ Materi terstruktur
+</p>
 
-            </div>
 
+<p>
+    ✓ Pendampingan belajar sampai mahir
+</p>
 
 
-            <div class="about-grid">
+<p>
+    ✓ Metode UMMI, Tilawati, Usmani, Islah dll
+</p>
 
 
-                <div class="about-image">
+<p>
+    ✓ Mendapatkan E-Sertifikat bagi yang berhasil
+</p>
 
-                    <img
-                        src="images/ustadz1.jpg"
-                        alt="Kegiatan belajar mengaji">
 
-                </div>
+</div>
 
+</div>
 
+</div>
 
-                <div class="about-text">
+</section>
 
 
-                    <h3>
 
-                        Menjadikan Al-Qur'an
-                        sebagai bagian dari kehidupan
+<!-- =====================================================
+     PROGRAM
+===================================================== -->
 
-                    </h3>
+<section
+    class="section programs"
+    id="program">
 
 
-                    <p>
+<div class="section-heading center">
 
-                        ngajiplus hadir untuk membantu
-                        siapa saja belajar Al-Qur'an dan
-                        ilmu agama secara bertahap.
 
-                    </p>
+<p class="section-label">
 
+    PROGRAM BELAJAR
 
-                    <p>
+</p>
 
-                        Pembelajaran dirancang agar mudah
-                        dipahami, terarah, dan dapat
-                        disesuaikan dengan kebutuhan santri.
 
-                    </p>
+<h2>
 
+    Pilihan Program
 
+</h2>
 
-                    <div class="check-list">
 
+<p>
 
-                        <p>
-                            ✓ Belajar bertahap
-                        </p>
+    Pilih program sesuai kebutuhan
+    dan tujuan belajar Anda.
 
+</p>
 
-                        <p>
-                            ✓ Pengajar berpengalaman dan Bersertifikat
-                        </p>
 
+</div>
 
-                        <p>
-                            ✓ Tersedia Guru Ikhwan dan Akhwat
-                        </p>
 
+<div class="program-grid">
 
-                        <p>
-                            ✓ Offline atau Online
-                        </p>
 
+<article class="program-card">
 
-                        <p>
-                            ✓ Materi terstruktur
-                        </p>
+<div class="program-icon">
+    📖
+</div>
 
+<h3>
+    Tahsin & Tahfidz Al-Qur'an
+</h3>
 
-                        <p>
-                            ✓ Pendampingan belajar sampai mahir
-                        </p>
+<p>
 
+    Memperbaiki bacaan,
+    makhraj, tajwid bahkan menghafal
+    surat-surat pilihan dengan berbagai
+    macam metode pilihan UMMI,
+    Tilawati, Usmani, Islah dll.
 
-                        <p>
-                            ✓ Metode UMMI, Tilawati, Usmani, Islah dll
-                        </p>
+</p>
 
+<a href="#kontak">
+    Daftar →
+</a>
 
-                        <p>
-                            ✓ Mendapatkan E-Sertifikat bagi yang berhasil
-                        </p>
+</article>
 
 
-                    </div>
 
-                </div>
+<article class="program-card">
 
-            </div>
+<div class="program-icon">
+    🕌
+</div>
 
-        </section>
+<h3>
+    Tahfidz Al-Qur'an 30 Juz
+</h3>
 
+<p>
 
+    Menghafal Al-Qur'an
+    secara bertahap dan terarah.
 
-        <!-- =====================================
-             PROGRAM
-        ====================================== -->
+</p>
 
-        <section
-            class="section programs"
-            id="program">
+<a href="#kontak">
+    Daftar →
+</a>
 
+</article>
 
-            <div class="section-heading center">
 
 
-                <p class="section-label">
+<article class="program-card">
 
-                    PROGRAM BELAJAR
+<div class="program-icon">
+    📚
+</div>
 
-                </p>
+<h3>
+    Bahasa Arab
+</h3>
 
+<p>
 
-                <h2>
+    Belajar dasar bahasa Arab
+    untuk memahami Al-Qur'an.
 
-                    Pilihan Program
+</p>
 
-                </h2>
+<a href="#kontak">
+    Daftar →
+</a>
 
+</article>
 
-                <p>
 
-                    Pilih program sesuai kebutuhan
-                    dan tujuan belajar Anda.
 
-                </p>
+<article class="program-card">
 
-            </div>
+<div class="program-icon">
+    🎙️
+</div>
 
+<h3>
+    Tilawah Al-Qur'an
+</h3>
 
+<p>
 
-            <div class="program-grid">
+    Belajar membaca Al-Qur'an sampai
+    menjadi Qori' dengan suara dan
+    irama yang baik.
 
+</p>
 
-                <!-- PROGRAM 1 -->
+<a href="#kontak">
+    Daftar →
+</a>
 
-                <article class="program-card">
+</article>
 
 
-                    <div class="program-icon">
-                        📖
-                    </div>
 
+<article class="program-card">
 
-                    <h3>
+<div class="program-icon">
+    1️⃣
+</div>
 
-                        Tahsin & Tahfidz Al-Qur'an
+<h3>
+    Aqidah
+</h3>
 
-                    </h3>
+<p>
 
+    Membentengi umat dari kesesatan
+    dengan Aqidah yang baik dan benar.
 
-                    <p>
+</p>
 
-                        Memperbaiki bacaan,
-                        makhraj, tajwid bahkan menghafal
-                        surat-surat pilihan dengan berbagai
-                        macam metode pilihan UMMI,
-                        Tilawati, Usmani, Islah dll.
+<a href="#kontak">
+    Daftar →
+</a>
 
-                    </p>
+</article>
 
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
 
-                </article>
+<article class="program-card">
 
+<div class="program-icon">
+    📝
+</div>
 
+<h3>
+    Fiqih
+</h3>
 
-                <!-- PROGRAM 2 -->
+<p>
 
-                <article class="program-card">
+    Mempelajari dasar ibadah
+    dan akhlak dalam kehidupan.
 
+</p>
 
-                    <div class="program-icon">
-                        🕌
-                    </div>
+<a href="#kontak">
+    Daftar →
+</a>
 
+</article>
 
-                    <h3>
 
-                        Tahfidz Al-Qur'an 30 Juz
 
-                    </h3>
+<article class="program-card">
 
+<div class="program-icon">
+    🗺️
+</div>
 
-                    <p>
+<h3>
+    Sejarah Nabi dan Keislaman
+</h3>
 
-                        Menghafal Al-Qur'an
-                        secara bertahap dan terarah.
+<p>
 
-                    </p>
+    Mengenal kisah-kisah
+    para Nabi terdahulu.
 
+</p>
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
+<a href="#kontak">
+    Daftar →
+</a>
 
-                </article>
+</article>
 
 
 
-                <!-- PROGRAM 3 -->
+<article class="program-card">
 
-                <article class="program-card">
+<div class="program-icon">
+    🎓
+</div>
 
+<h3>
+    Pelajaran UMUM
+</h3>
 
-                    <div class="program-icon">
-                        📚
-                    </div>
+<p>
 
+    Komputer, Matematika, Olahraga,
+    Bahasa Asing, Hadroh/Marawis,
+    Futsal, Taekwondo, dll.
 
-                    <h3>
+</p>
 
-                        Bahasa Arab
+<a href="#kontak">
+    Daftar →
+</a>
 
-                    </h3>
+</article>
 
 
-                    <p>
+</div>
 
-                        Belajar dasar bahasa Arab
-                        untuk memahami Al-Qur'an.
+</section>
 
-                    </p>
 
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
+<!-- =====================================================
+     DOKUMENTASI
+===================================================== -->
 
-                </article>
+<section
+    class="section documentation"
+    id="dokumentasi">
 
 
+<div class="section-heading center">
 
-                <!-- PROGRAM 4 -->
 
-                <article class="program-card">
+<p class="section-label">
+    DOKUMENTASI
+</p>
 
 
-                    <div class="program-icon">
-                        🎙️
-                    </div>
+<h2>
+    Kegiatan Belajar
+</h2>
 
 
-                    <h3>
+<p>
+    Beberapa dokumentasi kegiatan
+    pembelajaran ngajiplus.
+</p>
 
-                        Tilawah Al-Qur'an
 
-                    </h3>
+</div>
 
 
-                    <p>
+<div class="gallery">
 
-                        Belajar membaca Al-Qur'an
-                        sampai menjadi Qori'
-                        dengan suara dan irama yang baik.
 
-                    </p>
+<div class="gallery-item">
 
+<img
+    src="images/adab1.jpg"
+    alt="Kegiatan 1">
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
+</div>
 
-                </article>
 
+<div class="gallery-item">
 
+<img
+    src="images/akhlak1.jpg"
+    alt="Kegiatan 2">
 
-                <!-- PROGRAM 5 -->
+</div>
 
-                <article class="program-card">
 
+<div class="gallery-item">
 
-                    <div class="program-icon">
-                        1️⃣
-                    </div>
+<img
+    src="images/arabic1.jpg"
+    alt="Kegiatan 3">
 
+</div>
 
-                    <h3>
 
-                        Aqidah
+<div class="gallery-item">
 
-                    </h3>
+<img
+    src="images/fiqih1.jpg"
+    alt="Kegiatan 4">
 
+</div>
 
-                    <p>
 
-                        Membentengi umat dari kesesatan
-                        dengan Aqidah yang baik dan benar.
+</div>
 
-                    </p>
+</section>
 
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
 
-                </article>
+<!-- =====================================================
+     ULASAN
+===================================================== -->
 
+<section
+    class="section reviews"
+    id="ulasan">
 
 
-                <!-- PROGRAM 6 -->
+<div class="section-heading center">
 
-                <article class="program-card">
 
+<p class="section-label">
+    ULASAN
+</p>
 
-                    <div class="program-icon">
-                        📝
-                    </div>
 
+<h2>
+    Apa Kata Mereka?
+</h2>
 
-                    <h3>
 
-                        Fiqih
+</div>
 
-                    </h3>
 
+<div class="review-grid">
 
-                    <p>
 
-                        Mempelajari dasar ibadah
-                        dan akhlak dalam kehidupan.
+<article class="review-card">
 
-                    </p>
 
+<div class="stars">
+    ★★★★★
+</div>
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
 
-                </article>
+<p>
 
+    "Pembelajarannya mudah dipahami
+    dan pengajarnya sangat sabar."
 
+</p>
 
-                <!-- PROGRAM 7 -->
 
-                <article class="program-card">
+<strong>
+    Wali Santri
+</strong>
 
 
-                    <div class="program-icon">
-                        🗺️
-                    </div>
+</article>
 
 
-                    <h3>
 
-                        Sejarah Nabi dan Keislaman
+<article class="review-card">
 
-                    </h3>
 
+<div class="stars">
+    ★★★★★
+</div>
 
-                    <p>
 
-                        Mengenal kisah-kisah
-                        para Nabi terdahulu.
+<p>
 
-                    </p>
+    "Materinya terstruktur sehingga
+    lebih mudah mengikuti proses belajar."
 
+</p>
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
 
-                </article>
+<strong>
+    Santri
+</strong>
 
 
+</article>
 
-                <!-- PROGRAM 8 -->
 
-                <article class="program-card">
 
+<article class="review-card">
 
-                    <div class="program-icon">
-                        🎓
-                    </div>
 
+<div class="stars">
+    ★★★★★
+</div>
 
-                    <h3>
 
-                        Pelajaran UMUM
+<p>
 
-                    </h3>
+    "Alhamdulillah, belajar Al-Qur'an
+    menjadi lebih menyenangkan."
 
+</p>
 
-                    <p>
 
-                        Komputer, Matematika, Olahraga,
-                        Bahasa Asing, Hadroh/Marawis,
-                        Futsal, Taekwondo, dll.
+<strong>
+    Orang Tua Santri
+</strong>
 
-                    </p>
 
+</article>
 
-                    <a href="#kontak">
-                        Daftar →
-                    </a>
 
-                </article>
+</div>
 
+</section>
 
-            </div>
 
-        </section>
 
+<!-- =====================================================
+     CTA
+===================================================== -->
 
+<section
+    class="cta"
+    id="kontak">
 
-        <!-- =====================================
-             DOKUMENTASI
-        ====================================== -->
 
-        <section
-            class="section documentation"
-            id="dokumentasi">
+<div class="cta-content">
 
 
-            <div class="section-heading center">
+<p class="section-label">
 
+    MULAI SEKARANG
 
-                <p class="section-label">
+</p>
 
-                    DOKUMENTASI
 
-                </p>
+<h2>
 
+    Siap Memulai
+    Perjalanan Mengaji?
 
-                <h2>
+</h2>
 
-                    Kegiatan Belajar
 
-                </h2>
+<p>
 
+    Hubungi kami untuk mendapatkan
+    informasi program dan jadwal belajar
+    ngajiplus Offline & Online.
 
-                <p>
+</p>
 
-                    Beberapa dokumentasi kegiatan
-                    pembelajaran ngajiplus.
 
-                </p>
+<a
+    href="https://wa.me/6287786222659?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20program%20Ngaji%20Online."
+    target="_blank"
+    rel="noopener"
+    class="btn-whatsapp">
 
-            </div>
+    💬 Daftar & Konsultasi
 
+</a>
 
 
-            <div class="gallery">
+</div>
 
+</section>
 
-                <div class="gallery-item">
 
-                    <img
-                        src="images/adab1.jpg"
-                        alt="Kegiatan belajar adab">
+</main>
 
-                </div>
 
 
-                <div class="gallery-item">
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-                    <img
-                        src="images/akhlak1.jpg"
-                        alt="Kegiatan belajar akhlak">
+<footer>
 
-                </div>
 
+<div class="footer-grid">
 
-                <div class="gallery-item">
 
-                    <img
-                        src="images/arabic1.jpg"
-                        alt="Kegiatan belajar bahasa Arab">
+<div class="footer-brand">
 
-                </div>
 
+<div class="footer-logo">
 
-                <div class="gallery-item">
+<img
+    src="images/logo1.png"
+    alt="Logo">
 
-                    <img
-                        src="images/fiqih1.jpg"
-                        alt="Kegiatan belajar fiqih">
+<strong>
+    ngajiplus
+</strong>
 
-                </div>
+</div>
 
 
-            </div>
+<p>
 
-        </section>
+    Membangun generasi Qur'ani
+    melalui pembelajaran Al-Qur'an
+    dan ilmu agama.
 
+</p>
 
 
-        <!-- =====================================
-             ULASAN
-        ====================================== -->
+</div>
 
-        <section
-            class="section reviews"
-            id="ulasan">
 
 
-            <div class="section-heading center">
+<div>
 
 
-                <p class="section-label">
+<h3>
+    Menu
+</h3>
 
-                    ULASAN
 
-                </p>
+<a href="#home">
+    Beranda
+</a>
 
 
-                <h2>
+<a href="#tentang">
+    Tentang
+</a>
 
-                    Apa Kata Mereka?
 
-                </h2>
+<a href="#program">
+    Program
+</a>
 
-            </div>
 
+<a href="#dokumentasi">
+    Dokumentasi
+</a>
 
 
-            <div class="review-grid">
+<a href="#ulasan">
+    Ulasan
+</a>
 
 
-                <article class="review-card">
+<a
+href="https://youtube.com/@ngajiplus-id?si=s9Vl6Vdnuzh6uM6H"
+target="_blank"
+rel="noopener">
 
+    🗃️ Perpustakaan Video
 
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+</a>
 
 
-                    <p>
+<a
+href="https://lynk.id/berkelazzzsuperinstant"
+target="_blank"
+rel="noopener">
 
-                        "Pembelajarannya mudah dipahami
-                        dan pengajarnya sangat sabar."
+    🛒 Store
 
-                    </p>
+</a>
 
 
-                    <strong>
-                        Wali Santri
-                    </strong>
+<a
+href="https://www.instagram.com/privat_umroh?igsi=MWhsbDFmd3R6MHlsag=="
+target="_blank"
+rel="noopener">
 
-                </article>
+    🕋 Privat Umroh
 
+</a>
 
 
-                <article class="review-card">
+<a
+href="https://akademi.ngajiplus.id/index.html"
+target="_blank"
+rel="noopener">
 
+    🔏 ngajiplus - Akademi
 
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+</a>
 
 
-                    <p>
+</div>
 
-                        "Materinya terstruktur sehingga
-                        lebih mudah mengikuti proses belajar."
 
-                    </p>
 
+<div>
 
-                    <strong>
-                        Santri
-                    </strong>
 
-                </article>
+<h3>
+    Follow me
+</h3>
 
 
+<p>
 
-                <article class="review-card">
+<a
+href="https://youtube.com/@ngajiplus-id?si=s9Vl6Vdnuzh6uM6H"
+target="_blank"
+rel="noopener">
 
+▶️ YouTube
 
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+</a>
 
+</p>
 
-                    <p>
 
-                        "Alhamdulillah, belajar Al-Qur'an
-                        menjadi lebih menyenangkan."
+<p>
 
-                    </p>
+<a
+href="https://www.instagram.com/ngaji_plus.id"
+target="_blank"
+rel="noopener">
 
+🅾 Instagram
 
-                    <strong>
-                        Orang Tua Santri
-                    </strong>
+</a>
 
-                </article>
+</p>
 
 
-            </div>
+<p>
 
-        </section>
+<a
+href="https://www.threads.com/@ngaji_plus.id"
+target="_blank"
+rel="noopener">
 
+@ Threads
 
+</a>
 
-        <!-- =====================================
-             CTA / KONTAK
-        ====================================== -->
+</p>
 
-        <section
-            class="cta"
-            id="kontak">
 
+<p>
 
-            <div class="cta-content">
+<a
+href="https://www.facebook.com/"
+target="_blank"
+rel="noopener">
 
+ⓕ Facebook
 
-                <p class="section-label">
+</a>
 
-                    MULAI SEKARANG
+</p>
 
-                </p>
 
+<p>
 
-                <h2>
+<a
+href="https://www.tiktok.com/@ngajiplus.id"
+target="_blank"
+rel="noopener">
 
-                    Siap Memulai
-                    Perjalanan Mengaji?
+🎵 TikTok
 
-                </h2>
+</a>
 
+</p>
 
-                <p>
 
-                    Hubungi kami untuk mendapatkan
-                    informasi program dan jadwal belajar
-                    ngajiplus Offline & Online.
+<p>
 
-                </p>
+<a
+href="https://t.me/ngajiplus"
+target="_blank"
+rel="noopener">
 
+💎 Telegram
 
-                <a
-                    href="https://wa.me/6287786222659?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20program%20Ngaji%20Online."
-                    target="_blank"
-                    rel="noopener"
-                    class="btn-whatsapp">
+</a>
 
-                    💬 Daftar & Konsultasi
+</p>
 
-                </a>
 
+<p>
 
-            </div>
+📧 Email :
+al.ngajiplus@gmail.com
 
-        </section>
+</p>
 
 
-    </main>
+</div>
 
 
+</div>
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
 
-    <footer>
 
+<div class="footer-bottom">
 
-        <div class="footer-grid">
+<p>
 
+© <span id="currentYear"></span>
+ngajiplus. All Rights Reserved.
 
-            <!-- BRAND -->
+</p>
 
-            <div class="footer-brand">
+</div>
 
 
-                <div class="footer-logo">
+</footer>
 
 
-                    <img
-                        src="images/logo1.png"
-                        alt="Logo NgajiPlus">
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-                    <strong>
-                        ngajiplus
-                    </strong>
+<script>
 
 
-                </div>
+/* ================================
+   MENU MOBILE
+================================ */
 
+function toggleMenu() {
 
-                <p>
+    const menu =
+        document.getElementById("menu");
 
-                    Membangun generasi Qur'ani
-                    melalui pembelajaran Al-Qur'an
-                    dan ilmu agama.
+    if (menu) {
 
-                </p>
+        menu.classList.toggle("active");
 
-            </div>
+    }
 
+}
 
 
-            <!-- MENU -->
+/* Tutup menu ketika link diklik */
 
-            <div>
+document
+.querySelectorAll(".menu a")
+.forEach(function(link) {
 
-
-                <h3>
-                    Menu
-                </h3>
-
-
-                <a href="#home">
-                    Beranda
-                </a>
-
-
-                <a href="#tentang">
-                    Tentang
-                </a>
-
-
-                <a href="#program">
-                    Program
-                </a>
-
-
-                <a href="#dokumentasi">
-                    Dokumentasi
-                </a>
-
-
-                <a href="#ulasan">
-                    Ulasan
-                </a>
-
-
-                <a
-                    href="https://youtube.com/@ngajiplus-id?si=s9Vl6Vdnuzh6uM6H"
-                    target="_blank"
-                    rel="noopener">
-
-                    🗃️ Perpustakaan Video
-
-                </a>
-
-
-                <a
-                    href="https://lynk.id/berkelazzzsuperinstant"
-                    target="_blank"
-                    rel="noopener">
-
-                    🛒 Store
-
-                </a>
-
-
-                <a
-                    href="https://www.instagram.com/privat_umroh?igsi=MWhsbDFmd3R6MHlsag=="
-                    target="_blank"
-                    rel="noopener">
-
-                    🕋 Privat Umroh
-
-                </a>
-
-
-                <a
-                    href="https://akademi.ngajiplus.id/index.html"
-                    target="_blank"
-                    rel="noopener">
-
-                    🔏 ngajiplus - Akademi
-
-                </a>
-
-
-            </div>
-
-
-
-            <!-- SOCIAL MEDIA -->
-
-            <div>
-
-
-                <h3>
-                    Follow me
-                </h3>
-
-
-                <p>
-
-                    <a
-                        href="https://youtube.com/@ngajiplus-id?si=s9Vl6Vdnuzh6uM6H"
-                        target="_blank"
-                        rel="noopener">
-
-                        ▶️ YouTube
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <a
-                        href="https://www.instagram.com/ngaji_plus.id"
-                        target="_blank"
-                        rel="noopener">
-
-                        🅾 Instagram
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <a
-                        href="https://www.threads.com/@ngaji_plus.id"
-                        target="_blank"
-                        rel="noopener">
-
-                        @ Threads
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <a
-                        href="https://www.facebook.com/"
-                        target="_blank"
-                        rel="noopener">
-
-                        ⓕ Facebook
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <a
-                        href="https://www.tiktok.com/@ngajiplus.id"
-                        target="_blank"
-                        rel="noopener">
-
-                        🎵 TikTok
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <a
-                        href="https://t.me/ngajiplus"
-                        target="_blank"
-                        rel="noopener">
-
-                        💎 Telegram
-
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    📧 Email :
-                    al.ngajiplus@gmail.com
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- COPYRIGHT -->
-
-        <div class="footer-bottom">
-
-            <p>
-
-                © <span id="currentYear"></span>
-                ngajiplus. All Rights Reserved.
-
-            </p>
-
-        </div>
-
-
-    </footer>
-
-
-
-    <!-- =========================================
-         SCRIPT MENU MOBILE
-    ========================================== -->
-
-    <script>
-
-        function toggleMenu() {
+    link.addEventListener(
+        "click",
+        function() {
 
             const menu =
                 document.getElementById("menu");
 
             if (menu) {
 
-                menu.classList.toggle("active");
+                menu.classList.remove("active");
 
             }
 
         }
+    );
 
+});
 
-        /* Tutup menu ketika link diklik */
 
-        document
-            .querySelectorAll(".menu a")
-            .forEach(function(link) {
 
-                link.addEventListener(
-                    "click",
-                    function() {
+/* ================================
+   DARK / LIGHT MODE
+================================ */
 
-                        const menu =
-                            document.getElementById("menu");
+const themeToggle =
+    document.getElementById("themeToggle");
 
-                        if (menu) {
 
-                            menu.classList.remove("active");
+/* Ambil tema yang tersimpan */
 
-                        }
+const savedTheme =
+    localStorage.getItem("ngajiplus-theme");
 
-                    }
-                );
 
-            });
+/* Jika sebelumnya dark */
 
-    </script>
+if (savedTheme === "dark") {
 
+    document.body.classList.add("dark-mode");
 
+    themeToggle.textContent = "☀️";
 
-    <!-- =========================================
-         DARK / LIGHT MODE
-    ========================================== -->
+    themeToggle.setAttribute(
+        "aria-label",
+        "Gunakan mode terang"
+    );
 
-    <script>
+} else {
 
-        const themeToggle =
-            document.getElementById("themeToggle");
+    document.body.classList.remove("dark-mode");
 
+    themeToggle.textContent = "🌙";
 
-        /* ==============================
-           BACA TEMA TERSIMPAN
-        ============================== */
+    themeToggle.setAttribute(
+        "aria-label",
+        "Gunakan mode gelap"
+    );
 
-        const savedTheme =
-            localStorage.getItem("ngajiplus-theme");
+}
 
 
-        if (savedTheme === "dark") {
 
-            document.body.classList.add("dark-mode");
+/* ================================
+   TOGGLE THEME
+================================ */
 
-            if (themeToggle) {
+function toggleTheme() {
 
-                themeToggle.textContent = "☀️";
+    const isDark =
+        document.body.classList.toggle(
+            "dark-mode"
+        );
 
-            }
 
-        } else {
+    if (isDark) {
 
-            if (themeToggle) {
+        localStorage.setItem(
+            "ngajiplus-theme",
+            "dark"
+        );
 
-                themeToggle.textContent = "🌙";
 
-            }
+        themeToggle.textContent =
+            "☀️";
 
-        }
 
+        themeToggle.setAttribute(
+            "aria-label",
+            "Gunakan mode terang"
+        );
 
-        /* ==============================
-           GANTI TEMA
-        ============================== */
 
-        function toggleTheme() {
+    } else {
 
-            document.body.classList.toggle(
-                "dark-mode"
-            );
+        localStorage.setItem(
+            "ngajiplus-theme",
+            "light"
+        );
 
 
-            const isDark =
-                document.body.classList.contains(
-                    "dark-mode"
-                );
+        themeToggle.textContent =
+            "🌙";
 
 
-            if (isDark) {
+        themeToggle.setAttribute(
+            "aria-label",
+            "Gunakan mode gelap"
+        );
 
-                localStorage.setItem(
-                    "ngajiplus-theme",
-                    "dark"
-                );
+    }
 
+}
 
-                if (themeToggle) {
 
-                    themeToggle.textContent = "☀️";
 
-                    themeToggle.setAttribute(
-                        "aria-label",
-                        "Gunakan mode terang"
-                    );
+/* ================================
+   TAHUN OTOMATIS
+================================ */
 
-                }
+const year =
+    document.getElementById(
+        "currentYear"
+    );
 
-            } else {
 
-                localStorage.setItem(
-                    "ngajiplus-theme",
-                    "light"
-                );
+if (year) {
 
+    year.textContent =
+        new Date().getFullYear();
 
-                if (themeToggle) {
+}
 
-                    themeToggle.textContent = "🌙";
 
-                    themeToggle.setAttribute(
-                        "aria-label",
-                        "Gunakan mode gelap"
-                    );
-
-                }
-
-            }
-
-        }
-
-    </script>
-
-
-
-    <!-- =========================================
-         TAHUN OTOMATIS
-    ========================================== -->
-
-    <script>
-
-        const yearElement =
-            document.getElementById("currentYear");
-
-
-        if (yearElement) {
-
-            yearElement.textContent =
-                new Date().getFullYear();
-
-        }
-
-    </script>
+</script>
 
 
 </body>
