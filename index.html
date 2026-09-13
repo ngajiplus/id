@@ -117,8 +117,7 @@ body.dark-mode .menu a:hover {
 
     flex-shrink: 0;
 
-    transition:
-        .3s ease;
+    transition: .3s ease;
 }
 
 .theme-toggle:hover {
@@ -382,7 +381,7 @@ body.dark-mode .menu-toggle {
 
 
 /* =========================
-   POPUP
+   POPUP DARK MODE
 ========================= */
 
 body.dark-mode .wa-popup-box {
@@ -437,16 +436,16 @@ footer,
 
 
 <!-- =====================================================
-     POPUP WHATSAPP
+     POPUP IKLAN 1
 ===================================================== -->
 
-<div id="waPopup" class="wa-popup">
+<div id="waPopup1" class="wa-popup">
 
     <div class="wa-popup-box">
 
         <button
             class="wa-close"
-            onclick="closeWaPopup()">
+            onclick="closeWaPopup(1)">
             ×
         </button>
 
@@ -467,9 +466,47 @@ footer,
 </div>
 
 
+
+<!-- =====================================================
+     POPUP IKLAN 2
+===================================================== -->
+
+<div id="waPopup2" class="wa-popup">
+
+    <div class="wa-popup-box">
+
+        <button
+            class="wa-close"
+            onclick="closeWaPopup(2)">
+            ×
+        </button>
+
+        <a
+            href="https://wa.me/6287786222659?text=Assalamualaikum%2C%20saya%20ingin%20mendapatkan%20informasi%20program%20NgajiPlus"
+            target="_blank"
+            rel="noopener">
+
+            <img
+                src="images/poster2.png"
+                alt="Promo NgajiPlus"
+                class="wa-poster">
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     STYLE POPUP
+===================================================== -->
+
 <style>
 
 .wa-popup {
+
     display: none;
 
     position: fixed;
@@ -481,12 +518,16 @@ footer,
     background: rgba(0,0,0,.75);
 
     align-items: center;
+
     justify-content: center;
 
     padding: 15px;
+
 }
 
+
 .wa-popup-box {
+
     position: relative;
 
     max-width: 420px;
@@ -504,9 +545,12 @@ footer,
 
     animation:
         popupIn .35s ease;
+
 }
 
+
 .wa-poster {
+
     display: block;
 
     width: 100%;
@@ -514,17 +558,22 @@ footer,
     height: auto;
 
     cursor: pointer;
+
 }
 
+
 .wa-close {
+
     position: absolute;
 
     z-index: 10;
 
     top: 8px;
+
     right: 8px;
 
     width: 35px;
+
     height: 35px;
 
     border: 0;
@@ -537,19 +586,77 @@ footer,
 
     font-size: 25px;
 
+    line-height: 35px;
+
+    padding: 0;
+
     cursor: pointer;
+
+    transition: .2s ease;
+
 }
+
+
+.wa-close:hover {
+
+    transform: scale(1.1);
+
+    background: rgba(0,0,0,.85);
+
+}
+
 
 @keyframes popupIn {
 
     from {
+
         transform: scale(.8);
+
         opacity: 0;
+
     }
 
     to {
+
         transform: scale(1);
+
         opacity: 1;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .wa-popup {
+
+        padding: 12px;
+
+    }
+
+    .wa-popup-box {
+
+        max-width: 100%;
+
+        border-radius: 13px;
+
+    }
+
+    .wa-close {
+
+        width: 34px;
+
+        height: 34px;
+
+        line-height: 34px;
+
+        font-size: 24px;
+
+        top: 7px;
+
+        right: 7px;
+
     }
 
 }
@@ -557,41 +664,127 @@ footer,
 </style>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT POPUP
+===================================================== -->
+
 <script>
+
+/* =====================================================
+   POPUP 1 MUNCUL SETELAH 3 DETIK
+===================================================== */
 
 setTimeout(function() {
 
-    const popup =
-        document.getElementById("waPopup");
+    const popup1 =
+        document.getElementById("waPopup1");
 
-    if (popup) {
-        popup.style.display = "flex";
+    if (popup1) {
+
+        popup1.style.display = "flex";
+
     }
 
 }, 3000);
 
 
-function closeWaPopup() {
+
+/* =====================================================
+   FUNGSI MENUTUP POPUP
+===================================================== */
+
+function closeWaPopup(number) {
 
     const popup =
-        document.getElementById("waPopup");
+        document.getElementById(
+            "waPopup" + number
+        );
 
     if (popup) {
+
         popup.style.display = "none";
+
+    }
+
+
+    /* ==========================================
+       JIKA POPUP 1 DITUTUP
+       MAKA POPUP 2 MUNCUL
+    ========================================== */
+
+    if (number === 1) {
+
+        setTimeout(function() {
+
+            const popup2 =
+                document.getElementById(
+                    "waPopup2"
+                );
+
+            if (popup2) {
+
+                popup2.style.display = "flex";
+
+            }
+
+        }, 500);
+
     }
 
 }
 
 
-document
-.getElementById("waPopup")
-.addEventListener("click", function(e) {
 
-    if (e.target === this) {
-        closeWaPopup();
-    }
+/* =====================================================
+   KLIK AREA GELAP UNTUK MENUTUP POPUP 1
+===================================================== */
 
-});
+const popup1 =
+    document.getElementById("waPopup1");
+
+if (popup1) {
+
+    popup1.addEventListener(
+        "click",
+        function(e) {
+
+            if (e.target === this) {
+
+                closeWaPopup(1);
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   KLIK AREA GELAP UNTUK MENUTUP POPUP 2
+===================================================== */
+
+const popup2 =
+    document.getElementById("waPopup2");
+
+if (popup2) {
+
+    popup2.addEventListener(
+        "click",
+        function(e) {
+
+            if (e.target === this) {
+
+                closeWaPopup(2);
+
+            }
+
+        }
+    );
+
+}
 
 </script>
 
@@ -1693,7 +1886,7 @@ ngajiplus.id All Rights Reserved.
 
 
 <!-- =====================================================
-     JAVASCRIPT
+     JAVASCRIPT UTAMA
 ===================================================== -->
 
 <script>
